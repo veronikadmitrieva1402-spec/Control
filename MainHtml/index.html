@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Портфолио студента</title>
+        <link rel="stylesheet" href="../Style/style.css">
+    </head>
+    <body>
+        <div class="page-container">
+            <header class="header">
+                <h1>Дмитриева Вероника</h1>
+            </header> 
+            <nav class="nav">
+                <ul class="nav-list"> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/index.html">Главная</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/projects.html">Проекты</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/diares.html">Дневник</a></li>  
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/contacts.html">Контакты</a></li>  
+                </ul> 
+            </nav>
+            <main class="content">
+                <article class="profile-header"> 
+                    <h1 class="profile-title">Добрый вечер. Я студент Хогвартса, группа ЭФБО-04-24. Увлекаюсь зельями и темной магией.</h1>
+                    <button class="download-btn" id="downloadResume">Скачать магическое резюме</button> 
+                    <img class="profile-photo" src="../Images/Severus.webp" alt="Фото">  
+                </article> 
+
+                <section class="skills-container">
+                    <h2>Мои навыки</h2>
+                    <div class="skills-grid">
+                        <div class="skill-tag">Создание собственных заклинаний 100%</div> 
+                        <div class="skill-tag">Общение с людьми 5%</div> 
+                        <div class="skill-tag">Зельеварение 200%</div> 
+                        <div class="skill-tag">Дуэли 60%</div> 
+                    </div> 
+                </section> 
+
+                <section class="work-section"> 
+                    <h2 class="section-title">Лучшие работы</h2> 
+                        <div class="work-grid">  
+                            <article class="work-card"> 
+                                <p class="work-text">Зелье из драконьево яйца</p>
+                                <img class="work-link" src="../Images/dragon.webp" alt="Dracon">
+                                <p class="work-text">Зелье из змеиной чешуи</p>
+                                <img class="work-link" src="../Images/green.webp" alt="Sneak">
+                                <p class="work-text">Зелье из розы Северной долины</p>
+                                <img class="work-link" src="../Images/rose.webp" alt="Rose">
+                            </article> 
+                        </div> 
+                </section> 
+            </main> 
+            <footer class="footer">
+                <p>Контакты: +7 (905) 456-23-54</p> 
+            </footer>
+            <script>
+                document.getElementById('downloadResume').addEventListener('click', function() {
+                    const link = document.createElement('a');
+                    
+                    link.href = '../Files/magical_resume.txt';
+                    link.download = 'Магическое_резюме_Северуса.txt';
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            </script>
+        </div>   
+    </body>
+</html>

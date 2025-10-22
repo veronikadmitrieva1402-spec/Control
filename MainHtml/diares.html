@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Дневник Принца-полукровки</title>
+        <link rel="stylesheet" href="../Style/style.css">
+    </head>
+    <body>
+        <div class="page-container">
+            <header class="header">
+                <h1>Дневник Принца-полукровки</h1> 
+            </header> 
+            <nav class="nav">
+                <ul class="nav-list"> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/index.html">Главная</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/projects.html">Проекты</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/diares.html">Дневник</a></li>  
+                    <li class="nav-item"><a class="nav-link" href="../MainHtml/contacts.html">Контакты</a></li> 
+                </ul> 
+            </nav>
+            <main class="content">
+                
+                <section class="diary-section">
+                    <h2 class="diary-title">Мои зельеварные записи</h2>
+                    <div class="progress-container">
+                        <div class="progress-item completed">
+                            <span class="progress-date">15 дек</span>
+                            <span class="progress-text">Усовершенствование зелья живой смерти </span>
+                        </div>
+                        <div class="progress-item completed">
+                            <span class="progress-date">10 дек</span>
+                            <span class="progress-text">Создание оборотного зелья </span>
+                        </div>
+                        <div class="progress-item in-progress">
+                            <span class="progress-date">05 дек</span>
+                            <span class="progress-text">Поиск противоядия от любовного зелья </span>
+                        </div>
+                        <div class="progress-item in-progress">
+                            <span class="progress-date">01 дек</span>
+                            <span class="progress-text">Испытания зелья правды </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="courses-section">
+                    <h2 class="courses-title">Магические умения</h2>
+                    <div class="courses-container">
+                        <div class="course-item">
+                            <span class="course-name">Искусство зельеварения</span>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="progress-percent">95%</span>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-name">Непроизносимые заклинания</span>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <span class="progress-percent">90%</span>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-name">Окклюменция</span>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="progress-percent">85%</span>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-name">Терпение к Поттеру</span>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 5%"></div>
+                                </div>
+                                <span class="progress-percent">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="add-entry-container">
+                    <button class="add-entry-btn">Добавить магическую запись</button>
+                </div>
+
+            </main> 
+            <footer class="footer">
+                <p>Контакты: +7 (905) 456-23-54</p> 
+            </footer>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const addEntryBtn = document.getElementById('addEntryBtn');
+                    const modalOverlay = document.getElementById('modalOverlay');
+                    const cancelBtn = document.getElementById('cancelBtn');
+                    const diaryForm = document.getElementById('diaryForm');
+                    const progressContainer = document.getElementById('progressContainer');
+
+
+                    addEntryBtn.addEventListener('click', function() {
+                        modalOverlay.style.display = 'flex';
+                    });
+
+
+                    cancelBtn.addEventListener('click', function() {
+                        modalOverlay.style.display = 'none';
+                    });
+
+                    modalOverlay.addEventListener('click', function(e) {
+                        if (e.target === modalOverlay) {
+                            modalOverlay.style.display = 'none';
+                        }
+                    });
+
+                    diaryForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const date = document.getElementById('entryDate').value;
+                        const text = document.getElementById('entryText').value;
+                        const status = document.getElementById('entryStatus').value;
+                        
+                        const newEntry = document.createElement('div');
+                        newEntry.className = `progress-item ${status}`;
+                        
+
+                        const formattedDate = new Date(date).toLocaleDateString('ru-RU', {
+                            day: 'numeric',
+                            month: 'short'
+                        });
+                        
+                        newEntry.innerHTML = `
+                            <span class="progress-date">${formattedDate}</span>
+                            <span class="progress-text">${text}</span>
+                            <span class="progress-status">${statusEmoji}</span>
+                        `;
+                        
+                        progressContainer.insertBefore(newEntry, progressContainer.firstChild);
+
+                        showNotification('Новая магическая запись добавлена!');
+                        
+                        modalOverlay.style.display = 'none';
+                        diaryForm.reset();
+                    });
+
+                    function showNotification(message) {
+                        const notification = document.createElement('div');
+                        notification.className = 'notification';
+                        notification.textContent = message;
+                        notification.style.cssText = `
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            background: #27ae60;
+                            color: white;
+                            padding: 15px 20px;
+                            border-radius: 5px;
+                            z-index: 1000;
+                            animation: slideIn 0.3s ease;
+                        `;
+                        
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 3000);
+                    }
+
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('entryDate').value = today;
+                });
+            </script>
+        </div>   
+    </body>
+</html>

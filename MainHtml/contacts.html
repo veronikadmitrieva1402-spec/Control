@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Контакты Принца-полукровки</title>
+        <link rel="stylesheet" href="../Style/style.css">
+    </head>
+    <body>
+        <div class="page-container">
+            <header class="header">
+                <h1>Контакты</h1>
+            </header> 
+            <nav class="nav">
+                <ul class="nav-list"> 
+                    <li class="nav-item"><a class="nav-link" href="../3Control_Frontend/index.html">Главная</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../3Control_Frontend/projects.html">Проекты</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../3Control_Frontend/diares.html">Дневник</a></li>  
+                    <li class="nav-item"><a class="nav-link" href="../3Control_Frontend/contacts.html">Контакты</a></li> 
+                </ul> 
+            </nav>
+            <main class="content">
+                
+                <section class="contact-section">
+                    <h2 class="contact-title">Свяжитесь со мной</h2>
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">Имя:</label>
+                                <input type="text" class="form-input" id="name" name="name" placeholder="Ваше имя" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email:</label>
+                                <input type="email" class="form-input" id="email" name="email" placeholder="your@email.com" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Сообщение:</label>
+                                <textarea class="form-textarea" id="message" name="message" placeholder="Ваше сообщение..." rows="4" required minlength="10"></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            <button type="submit" class="submit-btn">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </section>
+
+            </main> 
+            <footer class="footer">
+                <p>Контакты: +7 (905) 456-23-54</p> 
+            </footer>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('contactForm');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+                const nameError = document.getElementById('nameError');
+                const emailError = document.getElementById('emailError');
+                const messageError = document.getElementById('messageError');
+
+                function validateName() {
+                    const name = nameInput.value.trim();
+                    if (name.length < 2) {
+                        nameError.textContent = 'Имя должно содержать минимум 2 символа';
+                        nameInput.classList.add('invalid');
+                        nameInput.classList.remove('valid');
+                        return false;
+                    } else {
+                        nameError.textContent = '';
+                        nameInput.classList.add('valid');
+                        nameInput.classList.remove('invalid');
+                        return true;
+                    }
+                }
+
+                function validateEmail() {
+                    const email = emailInput.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (!emailRegex.test(email)) {
+                        emailError.textContent = 'Введите корректный email адрес';
+                        emailInput.classList.add('invalid');
+                        emailInput.classList.remove('valid');
+                        return false;
+                    } else {
+                        emailError.textContent = '';
+                        emailInput.classList.add('valid');
+                        emailInput.classList.remove('invalid');
+                        return true;
+                    }
+                }
+
+                function validateMessage() {
+                    const message = messageInput.value.trim();
+                    if (message.length < 10) {
+                        messageError.textContent = 'Сообщение должно содержать минимум 10 символов';
+                        messageInput.classList.add('invalid');
+                        messageInput.classList.remove('valid');
+                        return false;
+                    } else {
+                        messageError.textContent = '';
+                        messageInput.classList.add('valid');
+                        messageInput.classList.remove('invalid');
+                        return true;
+                    }
+                }
+
+
+                nameInput.addEventListener('input', validateName);
+                nameInput.addEventListener('blur', validateName);
+                
+                emailInput.addEventListener('input', validateEmail);
+                emailInput.addEventListener('blur', validateEmail);
+                
+                messageInput.addEventListener('input', validateMessage);
+                messageInput.addEventListener('blur', validateMessage);
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const isNameValid = validateName();
+                    const isEmailValid = validateEmail();
+                    const isMessageValid = validateMessage();
+                    
+                    if (isNameValid && isEmailValid && isMessageValid) {
+                        const submitBtn = form.querySelector('.submit-btn');
+                        submitBtn.disabled = true;
+                        
+                        setTimeout(() => {
+                            const successMessage = document.createElement('div');
+                            successMessage.className = 'success-message';
+                            form.appendChild(successMessage);
+                            
+                    
+                            form.reset();
+                            nameInput.classList.remove('valid');
+                            emailInput.classList.remove('valid');
+                            messageInput.classList.remove('valid');
+                            
+                            submitBtn.textContent = 'Отправить сообщение';
+                            submitBtn.disabled = false;
+                            
+
+                            setTimeout(() => {
+                                successMessage.remove();
+                            }, 5000);
+                            
+                        }, 1500);
+                    }
+                });
+
+                form.addEventListener('invalid', function(e) {
+                    e.preventDefault();
+                    switch(e.target.id) {
+                        case 'name': validateName(); break;
+                        case 'email': validateEmail(); break;
+                        case 'message': validateMessage(); break;
+                    }
+                }, true);
+            });
+        </script>
+    </body>
+</html>
