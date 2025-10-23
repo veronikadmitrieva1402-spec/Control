@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0, viewport-fit=cover">
         <title>Портфолио студента</title>
         <link rel="stylesheet" href="../Style/style.css">
     </head>
     <body>
+        <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
         <div class="page-container">
             <header class="header">
                 <h1>Дмитриева Вероника</h1>
@@ -23,7 +24,13 @@
                 <article class="profile-header"> 
                     <h1 class="profile-title">Добрый вечер. Я студент Хогвартса, группа ЭФБО-04-24. Увлекаюсь зельями и темной магией.</h1>
                     <button class="download-btn" id="downloadResume">Скачать магическое резюме</button> 
-                    <img class="profile-photo" src="../Images/Severus.webp" alt="Фото">  
+                    <img class="profile-photo" 
+                        src="../Images/Severus.webp" 
+                        srcset="../Images/Severus-400.webp 400w,
+                                ../Images/Severus-800.webp 800w,
+                                ../Images/Severus-1200.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 250px"
+                        alt="Фото">  
                 </article> 
 
                 <section class="skills-container">

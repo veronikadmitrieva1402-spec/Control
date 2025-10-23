@@ -29,6 +29,11 @@ body {
     position: relative;
 }
 
+.header, .nav {
+    padding: 1rem;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+}
 .header::before {
     position: absolute;
     left: 20px;
@@ -87,6 +92,11 @@ body {
     gap: 3rem;
 }
 
+.nav-link:focus-visible,
+.download-btn:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 2px;
+}
 .nav-link {
     color: #ffd700;
     text-decoration: none;
