@@ -32,9 +32,9 @@
                         <source media="(min-width: 768px)" srcset="../Images/Severus-medium.jpg" type="image/jpeg">
 
                         <source srcset="../Images/Severus-small.webp" type="image/webp">
-                        <img src="../Images/Severus-small.jpg" alt="Фото Северуса Снейпа" class="profile-photo">
-                    </picture>  
-                </article> 
+                        <img src="../Images/Severus-small.jpg" alt="Фото Северуса Снейпа" class="profile-photo responsive-image">
+                    </picture>
+                </article>
 
                 <section class="skills-container">
                     <h2>Мои навыки</h2>
@@ -51,11 +51,13 @@
                         <div class="work-grid">  
                             <article class="work-card"> 
                                 <p class="work-text">Зелье из драконьево яйца</p>
-                                <img class="work-link" src="../Images/dragon.webp" alt="Dracon">
+                                <img src="../Images/dragon@1x.webp" srcset="../Images/dragon@1x.wepb 1x, ../Images/dragon@2x.webp 2x" alt="Драконье зелье" class="work-link responsive-image object-fit-cover">
+
                                 <p class="work-text">Зелье из змеиной чешуи</p>
-                                <img class="work-link" src="../Images/green.webp" alt="Sneak">
+
+                                <img class="work-link responsive-image object-fit-contain" src="../Images/green.webp" alt="Sneak" >
                                 <p class="work-text">Зелье из розы Северной долины</p>
-                                <img class="work-link" src="../Images/rose.webp" alt="Rose">
+                                <img class="work-link responsive-image object-fit-cover" src="../Images/rose.webp" alt="Rose">
                             </article> 
                         </div> 
                 </section> 

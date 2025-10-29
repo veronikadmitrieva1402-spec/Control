@@ -20,6 +20,25 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
+.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.object-fit-cover { 
+    object-fit: cover; 
+}
+
+.object-fit-contain { 
+    object-fit: contain; 
+}
+
+.object-fit-fill { 
+    object-fit: fill; 
+}
+
+
 /* Хедер */
 .header {
     background: linear-gradient(90deg, #2d1b33 0%, #4a2c5d 50%, #2d1b33 100%);
@@ -91,6 +110,8 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
+
+
 
 /* Навигация */
 .nav {
@@ -344,7 +365,7 @@ body {
     }
     
     .work-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2,1fr);
     }
     
     .header h1 {
@@ -376,6 +397,19 @@ body {
     .profile-photo{
         padding: 1.5rem 1rem;
     }
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.retina-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+picture {
+    display: block;
+    width: 100%;
 }
 
 @supports (container-type: inline-size) {
