@@ -18,6 +18,7 @@ body {
     background: rgba(26, 26, 46, 0.9);
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
 }
 
 .responsive-image {
@@ -102,6 +103,7 @@ body {
     align-self: flex-start;
     text-decoration: none;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .download-btn:hover {
@@ -164,6 +166,12 @@ body {
     background: rgba(45, 27, 51, 0.7);
     border-radius: 15px;
     border: 2px solid #8b5a2b;
+    flex-wrap: wrap;
+    min-height: 0;
+    overflow: visible;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
 }
 
 .profile-title {
@@ -171,15 +179,21 @@ body {
     color: #ffd700;
     font-size: 1.4rem;
     line-height: 1.8;
+    min-width: 300px;
 }
 
 .profile-photo {
-    width: 250px;
-    height: 300px;
+    width: 450px;
+    height: 500px;
     border-radius: 15px;
     border: 3px solid #ffd700;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     object-fit: cover;
+    flex-shrink: 0;
+    max-width: 450px;
+    margin: 0 auto;
+    max-height: 500px;
+    object-position: center;
 }
 
 /* Навыки */
@@ -345,11 +359,19 @@ body {
     animation: glow 3s ease-in-out infinite;
 }
 
+@media (max-width: 1200px) {
+    .profile-header {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .profile-header {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
     
     .nav-list {
@@ -359,6 +381,7 @@ body {
     }
     .download-btn {
         align-self: center;
+        order: 3;
     }
     .skills-grid {
         grid-template-columns: 1fr;
@@ -372,11 +395,18 @@ body {
         font-size: 1.8rem;
     }
     .profile-photo {
+        order: 2;
         font-size: 1.8rem;
+        max-width: min(100%, 450px); 
+        max-height: 400px;
+
+
     }
     
     .profile-title {
         font-size: 1.1rem;
+        width: 100%;
+        order: 1;
     }
 }
 
@@ -431,6 +461,7 @@ picture {
     border-radius: 15px;
     border: 2px solid #8b5a2b;
     margin: 2rem 0;
+    overflow: visible;
 }
 
 .projects-container h2 {
@@ -681,7 +712,22 @@ picture {
         font-size: 1.8rem;
     }
 }
+@media (max-width: 320px) {
+    .projects-container {
+        padding: 0.5rem;
+    }
 
+    .projects-tag {
+        font-size: 0.9rem;
+    }
+    .projects-text {
+        font-size: 1rem;
+    }
+    
+    .projects-image {
+        height: 150px;
+    }
+}
 /* Стили для дневника Северуса */
 .diary-section {
     padding: 2rem;
