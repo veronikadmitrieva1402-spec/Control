@@ -24,7 +24,16 @@
                 <article class="profile-header"> 
                     <h1 class="profile-title">Добрый вечер. Я студент Хогвартса, группа ЭФБО-04-24. Увлекаюсь зельями и темной магией.</h1>
                     <button class="download-btn" id="downloadResume">Скачать магическое резюме</button> 
-                    <img class="profile-photo" src="../Images/Severus.webp" alt="Фото">  
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="../Images/Severus-large.webp" type="image/webp">
+                        <source media="(min-width: 1200px)" srcset="../Images/Severus-large.jpg" type="image/jpeg">
+
+                        <source media="(min-width: 768px)" srcset="../Images/Severus-medium.webp" type="image.webp">
+                        <source media="(min-width: 768px)" srcset="../Images/Severus-medium.jpg" type="image/jpeg">
+
+                        <source srcset="../Images/Severus-small.webp" type="image/webp">
+                        <img src="../Images/Severus-small.jpg" alt="Фото Северуса Снейпа" class="profile-photo">
+                    </picture>  
                 </article> 
 
                 <section class="skills-container">
