@@ -4,6 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1 {
+    font-size: 2rem;
+}
 
 body {
     font-family: 'Georgia', serif;
@@ -88,6 +91,12 @@ body {
     border-radius: 0 0 5px 5px;
     z-index: 10000;
     transition:all 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid #ffd700;
+    outline-offset: 2px;
 }
 
 .download-btn {
