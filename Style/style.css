@@ -13,6 +13,9 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: #e0e0e0;
     line-height: 1.6;
+    min-width: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .page-container {
@@ -21,6 +24,7 @@ body {
     background: rgba(26, 26, 46, 0.9);
     min-height: 100vh;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    position: relative;
 
 }
 
@@ -209,6 +213,14 @@ body {
     max-height: 500px;
     object-position: center;
     order: 2;
+    background: linear-gradient(45deg, #2d1b33, #4a2c5d);
+}
+picture{
+    display: block;
+    width: 450px;
+    height: 500px;
+    background: linear-gradient(45deg, #2d1b33, #4a2c5d);
+    border-radius: 15px;
 }
 
 /* Навыки */
