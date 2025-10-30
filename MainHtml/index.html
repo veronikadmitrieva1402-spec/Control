@@ -5,7 +5,17 @@
         <meta name="description" content="Сайт про Северуса Снейпа">
         <meta name="viewport" content="width = device-width, initial-scale = 1.0, viewport-fit=cover">
         <title>Портфолио студента</title>
-        <link rel="stylesheet" href="../Style/style.css">
+        <link rel="preload" href="../Style/style.css" as="style">
+        <link rel="preload" href="../Images/Severus-small.webp" as="image">
+        <link rel="stylesheet" href="../Style/style.css" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="../Style/style.css"></noscript>
+
+        <link rel="prefetch" href="../MainHtml/projects.html" as="document">
+        <link rel="prefetch" href="../MainHtml/diares.html" as="document">
+        <link rel="prefetch" href="../MainHtml/contacts.html" as="document">
+        <link rel="prefetch" href="../MainHtml/index.html" as="document">
+
+
     </head>
     <body>
         <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
