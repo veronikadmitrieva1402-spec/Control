@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Проекты Северуса Снейпа">
@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../Style/style.css">
     </head>
     <body>
-        <a href="#content" class="skip-link">Перейти к основному содержимому</a>
+        <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
         <div class="page-container">
             <header class="header">
                 <h1>Проекты</h1> 
@@ -21,29 +21,57 @@
                     <li class="nav-item"><a class="nav-link" href="../MainHtml/contacts.html">Контакты</a></li> 
                 </ul> 
             </nav>
-            <main class="content">
+            <main class="content" id="main-content" tabindex="-1">
             
                 <section class="projects-container">
                     <h2>Мои проекты</h2>
                     <div class="projects-grid">
                         <div class="projects-tag">Дневник Принца-полукровки</div>
                         <p class="projects-text">Личная собственность Северуса Снейпа</p>
-                        <img src="../Images/Diares.webp" class="projects-image" alt="Book">
+                        <img src="../Images/Diares-small.webp" 
+                            srcset="../Images/Diares-small.webp 1x, ../Images/Diares-medium.webp 2x"
+                            class="projects-image" 
+                            alt="Дневник Принца-полукровки"
+                            width="454" 
+                            height="306"
+                            loading="lazy">
+
                         <div class="projects-tag">Котел для варки зелий</div>
                         <p class="projects-text">
                             Материал: Чугун
                             Размер: 100х100
                         </p>
-                        <img src="../Images/Kotel.webp" class="projects-image" alt="Kotel">
+                        <img src="../Images/Kotel-small.webp" 
+                            srcset="../Images/Kotel-small.webp 1x, ../Images/Kotel-medium.webp 2x"
+                            class="projects-image" 
+                            alt="Котел для варки зелий"
+                            width="454" 
+                            height="306"
+                            loading="lazy">
+
                         <div class="projects-tag">Стол</div>
                         <p class="projects-text">Предназначение: проверка эссе студентов</p>
-                        <img src="../Images/able.webp" class="projects-image" alt="Table"> 
+                        <img src="../Images/able-small.webp" 
+                            srcset="../Images/able-small.webp 1x, ../Images/able-medium.webp 2x"
+                            class="projects-image" 
+                            alt="Стол для проверки эссе"
+                            width="454" 
+                            height="306"
+                            loading="lazy"> 
+
                         <div class="projects-tag">Волшебная палочка</div>
                         <p class="projects-text">
                             Материал: чешуя дракона, волосы единорога
                             Цвет: Нефть
                         </p>
-                        <img src="../Images/stick.webp" class="projects-image" alt="MagicStick"> 
+                        <img src="../Images/stick-small.webp" 
+                            srcset="../Images/stick-small.webp 1x, ../Images/stick-medium.webp 2x"
+                            class="projects-image" 
+                            alt="Волшебная палочка"
+                            width="454" 
+                            height="306"
+                            loading="lazy"> 
+
                     </div> 
                 </section> 
             </main> 
